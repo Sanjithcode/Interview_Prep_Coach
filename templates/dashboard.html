@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Interview Prep Coach</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --dark-bg-primary: #0d1117;
+      --dark-bg-secondary: #161b22;
+      --dark-bg-tertiary: #21262d;
+      --dark-border: #30363d;
+      --dark-text-primary: #f0f6fc;
+      --dark-text-secondary: #8b949e;
+      --dark-accent-blue: #58a6ff;
+      --dark-accent-green: #3fb950;
+      --dark-accent-yellow: #d29922;
+      --dark-accent-purple: #a5a5ff;
+      --dark-accent-red: #f85149;
+      --dark-card-hover: #262c36;
+    }
+
+    body {
+      background-color: var(--dark-bg-primary);
+      color: var(--dark-text-primary);
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background: linear-gradient(135deg, var(--dark-bg-secondary) 0%, var(--dark-bg-tertiary) 100%) !important;
+      border-bottom: 1px solid var(--dark-border);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar-brand {
+      color: var(--dark-text-primary) !important;
+      font-weight: 600;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      color: var(--dark-accent-blue) !important;
+    }
+
+    .navbar-text {
+      color: var(--dark-text-secondary) !important;
+      font-weight: 500;
+    }
+
+    .btn-outline-light {
+      border: 2px solid var(--dark-accent-blue);
+      color: var(--dark-accent-blue);
+      background: transparent;
+      font-weight: 500;
+      border-radius: 8px;
+      padding: 8px 20px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-light:hover {
+      background: var(--dark-accent-blue);
+      color: var(--dark-bg-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(88, 166, 255, 0.3);
+    }
+
+    /* Dashboard Title */
+    .dashboard-title {
+      color: var(--dark-text-primary);
+      font-weight: 700;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .dashboard-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--dark-accent-blue), var(--dark-accent-purple));
+      border-radius: 2px;
+    }
+
+    /* Feature Cards */
+    .feature-card {
+      background: var(--dark-bg-secondary);
+      border: 1px solid var(--dark-border);
+      border-radius: 12px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--dark-accent-blue), var(--dark-accent-green), var(--dark-accent-yellow), var(--dark-accent-purple), var(--dark-accent-red));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      background: var(--dark-card-hover);
+      border-color: var(--dark-accent-blue);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Card specific hover colors */
+    .feature-card:nth-child(1):hover {
+      box-shadow: 0 20px 40px rgba(88, 166, 255, 0.2);
+    }
+
+    .feature-card:nth-child(2):hover {
+      box-shadow: 0 20px 40px rgba(63, 185, 80, 0.2);
+    }
+
+    .feature-card:nth-child(3):hover {
+      box-shadow: 0 20px 40px rgba(210, 153, 34, 0.2);
+    }
+
+    .feature-card:nth-child(4):hover {
+      box-shadow: 0 20px 40px rgba(165, 165, 255, 0.2);
+    }
+
+    .feature-card:nth-child(5):hover {
+      box-shadow: 0 20px 40px rgba(248, 81, 73, 0.2);
+    }
+
+    .card-body {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover .card-icon {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    .card-title {
+      color: var(--dark-text-primary);
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-text {
+      color: var(--dark-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    /* Button Styling */
+    .btn {
+      border-radius: 8px;
+      font-weight: 500;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.3s ease;
+      z-index: 0;
+    }
+
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4285f4, #366af3);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #366af3, #2d5ae3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(66, 133, 244, 0.3);
+    }
+
+    .btn-success {
+      background: linear-gradient(135deg, #34a853, #2d9444);
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: linear-gradient(135deg, #2d9444, #268238);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(52, 168, 83, 0.3);
+    }
+
+    .btn-warning {
+      background: linear-gradient(135deg, #fbbc05, #f9ab00);
+      color: var(--dark-bg-primary);
+    }
+
+    .btn-warning:hover {
+      background: linear-gradient(135deg, #f9ab00, #f29900);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(251, 188, 5, 0.3);
+    }
+
+    .btn-info {
+      background: linear-gradient(135deg, #9c27b0, #8e24aa);
+      color: white;
+    }
+
+    .btn-info:hover {
+      background: linear-gradient(135deg, #8e24aa, #7b1fa2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(156, 39, 176, 0.3);
+    }
+
+    .btn-dark {
+      background: linear-gradient(135deg, #424242, #303030);
+      color: white;
+    }
+
+    .btn-dark:hover {
+      background: linear-gradient(135deg, #303030, #212121);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(66, 66, 66, 0.3);
+    }
+
+    /* Icon Colors */
+    .leaderboard-icon { color: var(--dark-accent-blue); }
+    .dsa-icon { color: var(--dark-accent-green); }
+    .random-icon { color: var(--dark-accent-yellow); }
+    .notes-icon { color: var(--dark-accent-purple); }
+    .aptitude-icon { color: var(--dark-accent-red); }
+
+    /* Container Styling */
+    .container {
+      max-width: 1200px;
+    }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--dark-bg-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--dark-border);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--dark-accent-blue);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .dashboard-title {
+        font-size: 2rem;
+      }
+      .card-body {
+        padding: 1.5rem;
+      }
+      .card-icon {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* Loading animation */
+    .feature-card {
+      animation: fadeInUp 0.6s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .feature-card:nth-child(1) { animation-delay: 0.1s; }
+    .feature-card:nth-child(2) { animation-delay: 0.2s; }
+    .feature-card:nth-child(3) { animation-delay: 0.3s; }
+    .feature-card:nth-child(4) { animation-delay: 0.4s; }
+    .feature-card:nth-child(5) { animation-delay: 0.5s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Subtle background pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle at 1px 1px, rgba(88, 166, 255, 0.05) 1px, transparent 0);
+      background-size: 20px 20px;
+      pointer-events: none;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-code me-2"></i>Interview Prep Coach
+      </a>
+      <div class="d-flex align-items-center">
+        <span class="navbar-text me-4">
+          <i class="fas fa-user me-2"></i>Welcome, {{ username }}!
+        </span>
+        <a class="btn btn-outline-light" href="/logout">
+          <i class="fas fa-sign-out-alt me-2"></i>Logout
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Content -->
+  <div class="container mt-5">
+    <h2 class="dashboard-title">Dashboard</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      
+      <!-- Leaderboard -->
+      <div class="col">
+        <div class="card feature-card h-100">
+          <div class="card-body text-center">
+            <div class="card-icon leaderboard-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h4 class="card-title">Leaderboard</h4>
+            <p class="card-text">See where you rank among other users and compete with fellow developers.</p>
+            <a href="/leaderboard" class="btn btn-primary">
+              <span><i class="fas fa-chart-line me-2"></i>View Leaderboard</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Daily DSA Questions -->
+      <div class="col">
+        <div class="card feature-card h-100">
+          <div class="card-body text-center">
+            <div class="card-icon dsa-icon">
+              <i class="fas fa-code-branch"></i>
+            </div>
+            <h4 class="card-title">Daily DSA Questions</h4>
+            <p class="card-text">Challenge yourself with today's new problem and improve your algorithmic thinking.</p>
+            <a href="/practice" class="btn btn-success">
+              <span><i class="fas fa-play me-2"></i>Start Practicing</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solve Random Questions -->
+      <div class="col">
+        <div class="card feature-card h-100">
+          <div class="card-body text-center">
+            <div class="card-icon random-icon">
+              <i class="fas fa-dice"></i>
+            </div>
+            <h4 class="card-title">Solve Random Questions</h4>
+            <p class="card-text">Get a surprise DSA question to solve and test your problem-solving skills.</p>
+            <a href="/random" class="btn btn-warning">
+              <span><i class="fas fa-random me-2"></i>Solve Random</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div class="col">
+        <div class="card feature-card h-100">
+          <div class="card-body text-center">
+            <div class="card-icon notes-icon">
+              <i class="fas fa-sticky-note"></i>
+            </div>
+            <h4 class="card-title">My Notes</h4>
+            <p class="card-text">Create, edit, and manage your personal study notes and important concepts.</p>
+            <a href="/notes" class="btn btn-info">
+              <span><i class="fas fa-edit me-2"></i>Manage Notes</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aptitude -->
+      <div class="col">
+        <div class="card feature-card h-100">
+          <div class="card-body text-center">
+            <div class="card-icon aptitude-icon">
+              <i class="fas fa-calculator"></i>
+            </div>
+            <h4 class="card-title">Aptitude</h4>
+            <p class="card-text">Practice aptitude questions topic-wise to strengthen your analytical skills.</p>
+            <a href="/aptitude" class="btn btn-dark">
+              <span><i class="fas fa-brain me-2"></i>Solve Aptitude</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+            <!-- ML intigration -->
+      <div class="dashboard-section">
+          <h3>🤖 AI-Powered Features</h3>
+          <div class="feature-buttons">
+              <a href="/ml-insights" class="feature-btn ai-btn">
+                  <span class="icon">🧠</span>
+                  <span>AI Learning Insights</span>
+                  <small>Get personalized recommendations</small>
+              </a>
+          </div>
+      </div>
+
+      <style>
+      .ai-btn {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          border: none;
+          animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+          0% { box-shadow: 0 0 0 0 rgba(118, 75, 162, 0.4); }
+          70% { box-shadow: 0 0 0 10px rgba(118, 75, 162, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(118, 75, 162, 0); }
+      }
+      </style>
+
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+[
+  {
+    "title": "Two Sum",
+    "titleSlug": "two-sum",
+    "difficulty": "Easy",
+    "tags": ["array", "hash-table"]
+  },
+   {
+    "title": "Remove Duplicates from Sorted Array",
+    "titleSlug": "remove-duplicates-from-sorted-array",
+    "difficulty": "Easy",
+    "tags": ["array","two-pointers"]
+  },
+   {
+    "title": "Subarray Sum Equals K",
+    "titleSlug": "subarray-sum-equals-k",
+    "difficulty": "Hard",
+    "tags": ["array","hash-table"]
+  },
+     {
+    "title": "Reverse Linked List",
+    "titleSlug": "reverse-linked-list",
+    "difficulty": "Easy",
+    "tags": ["linked-list"]
+  },
+  {
+    "title": "Merge k Sorted Lists",
+    "titleSlug": "merge-k-sorted-lists",
+    "difficulty": "Hard",
+    "tags": ["linked-list"]
+  },
+  {
+    "title": "Largest Rectangle in Histogram",
+    "titleSlug": "largest-rectangle-in-histogram",
+    "difficulty": "Hard",
+    "tags": ["stack"]
+  },
+  {
+    "title": "Add Two Numbers",
+    "titleSlug": "add-two-numbers",
+    "difficulty": "Medium",
+    "tags": ["linked-list", "math"]
+  },
+  {
+    "title": "Median of Two Sorted Arrays",
+    "titleSlug": "median-of-two-sorted-arrays",
+    "difficulty": "Hard",
+    "tags": ["array", "binary-search", "divide-and-conquer"]
+  },
+  {
+    "title": "Merge Intervals",
+    "titleSlug": "merge-intervals",
+    "difficulty": "Medium",
+    "tags": ["array", "sorting"]
+  },
+  {
+    "title": "Word Ladder",
+    "titleSlug": "word-ladder",
+    "difficulty": "Hard",
+    "tags": ["breadth-first-search", "graph"]
+  },
+  {
+    "title": "Valid Parentheses",
+    "titleSlug": "valid-parentheses",
+    "difficulty": "Easy",
+    "tags": ["stack"]
+  },
+  {
+    "title": "Best Time to Buy and Sell Stock",
+    "titleSlug": "best-time-to-buy-and-sell-stock",
+    "difficulty": "Easy",
+    "tags": ["array", "dynamic-programming"]
+  },
+  {
+    "title": "Longest Substring Without Repeating Characters",
+    "titleSlug": "longest-substring-without-repeating-characters",
+    "difficulty": "Medium",
+    "tags": ["hash-table", "two-pointers", "string"]
+  },
+  {
+    "title": "Binary Tree Inorder Traversal",
+    "titleSlug": "binary-tree-inorder-traversal",
+    "difficulty": "Easy",
+    "tags": ["tree", "stack", "depth-first-search"]
+  },
+   {
+    "title": "Maximum Subarray",
+    "titleSlug": "maximum-subarray",
+    "difficulty": "Easy",
+    "tags": ["array","dynamic-programming"]
+  },
+
+  {
+    "title": "Lowest Common Ancestor of a Binary Tree",
+    "titleSlug": "lowest-common-ancestor-of-a-binary-tree",
+    "difficulty": "Medium",
+    "tags": ["tree", "depth-first-search", "binary-tree"]
+  },
+  {
+    "title": "Serialize and Deserialize Binary Tree",
+    "titleSlug": "serialize-and-deserialize-binary-tree",
+    "difficulty": "Hard",
+    "tags": ["tree", "depth-first-search", "breadth-first-search"]
+  },
+  {
+    "title": "Clone Graph",
+    "titleSlug": "clone-graph",
+    "difficulty": "Medium",
+    "tags": ["graph", "depth-first-search", "breadth-first-search"]
+  },
+  {
+    "title": "Course Schedule",
+    "titleSlug": "course-schedule",
+    "difficulty": "Medium",
+    "tags": ["graph", "topological-sort", "depth-first-search"]
+  },
+  {
+    "title": "Number of Islands",
+    "titleSlug": "number-of-islands",
+    "difficulty": "Medium",
+    "tags": ["depth-first-search", "breadth-first-search", "matrix"]
+  },
+  {
+    "title": "Implement Trie (Prefix Tree)",
+    "titleSlug": "implement-trie-prefix-tree",
+    "difficulty": "Medium",
+    "tags": ["design", "trie"]
+  },
+  {
+    "title": "Insert Interval",
+    "titleSlug": "insert-interval",
+    "difficulty": "Medium",
+    "tags": ["array", "sorting"]
+  },
+  {
+    "title": "Find Median from Data Stream",
+    "titleSlug": "find-median-from-data-stream",
+    "difficulty": "Hard",
+    "tags": ["heap", "design"]
+  },
+  {
+    "title": "Sliding Window Maximum",
+    "titleSlug": "sliding-window-maximum",
+    "difficulty": "Hard",
+    "tags": ["heap", "sliding-window"]
+  },
+  {
+    "title": "Maximum Subarray",
+    "titleSlug": "maximum-subarray",
+    "difficulty": "Easy",
+    "tags": ["array", "dynamic-programming"]
+  },
+  {
+    "title": "House Robber",
+    "titleSlug": "house-robber",
+    "difficulty": "Medium",
+    "tags": ["dynamic-programming"]
+  },
+  {
+    "title": "Coin Change",
+    "titleSlug": "coin-change",
+    "difficulty": "Medium",
+    "tags": ["dynamic-programming"]
+  },
+  {
+    "title": "Longest Palindromic Substring",
+    "titleSlug": "longest-palindromic-substring",
+    "difficulty": "Medium",
+    "tags": ["string", "dynamic-programming"]
+  },
+  {
+    "title": "Regular Expression Matching",
+    "titleSlug": "regular-expression-matching",
+    "difficulty": "Hard",
+    "tags": ["string", "dynamic-programming"]
+  },
+  {
+    "title": "LRU Cache",
+    "titleSlug": "lru-cache",
+    "difficulty": "Medium",
+    "tags": ["design", "hash-table", "linked-list"]
+  },
+  {
+    "title": "Top K Frequent Elements",
+    "titleSlug": "top-k-frequent-elements",
+    "difficulty": "Medium",
+    "tags": ["heap", "hash-table"]
+  },
+  {
+    "title": "Kth Largest Element in an Array",
+    "titleSlug": "kth-largest-element-in-an-array",
+    "difficulty": "Medium",
+    "tags": ["heap", "quickselect"]
+  },
+  {
+    "title": "Maximum Depth of Binary Tree",
+    "titleSlug": "maximum-depth-of-binary-tree",
+    "difficulty": "Easy",
+    "tags": ["tree", "depth-first-search"]
+  },
+  {
+    "title": "Balanced Binary Tree",
+    "titleSlug": "balanced-binary-tree",
+    "difficulty": "Easy",
+    "tags": ["tree", "depth-first-search"]
+  },
+  {
+    "title": "Validate Binary Search Tree",
+    "titleSlug": "validate-binary-search-tree",
+    "difficulty": "Medium",
+    "tags": ["tree", "depth-first-search"]
+  },
+  {
+    "title": "Binary Tree Maximum Path Sum",
+    "titleSlug": "binary-tree-maximum-path-sum",
+    "difficulty": "Hard",
+    "tags": ["tree", "depth-first-search"]
+  },
+  {
+    "title": "Minimum Window Substring",
+    "titleSlug": "minimum-window-substring",
+    "difficulty": "Hard",
+    "tags": ["sliding-window", "hash-table"]
+  },
+  {
+    "title": "Subsets",
+    "titleSlug": "subsets",
+    "difficulty": "Medium",
+    "tags": ["backtracking", "bit-manipulation"]
+  },
+  {
+    "title": "Combination Sum",
+    "titleSlug": "combination-sum",
+    "difficulty": "Medium",
+    "tags": ["backtracking"]
+  },
+  {
+    "title": "Permutations",
+    "titleSlug": "permutations",
+    "difficulty": "Medium",
+    "tags": ["backtracking"]
+  },
+  {
+    "title": "Jump Game",
+    "titleSlug": "jump-game",
+    "difficulty": "Medium",
+    "tags": ["array", "greedy", "dynamic-programming"]
+  },
+  {
+    "title": "Set Matrix Zeroes",
+    "titleSlug": "set-matrix-zeroes",
+    "difficulty": "Medium",
+    "tags": ["matrix"]
+  },
+  {
+    "title": "Rotate Image",
+    "titleSlug": "rotate-image",
+    "difficulty": "Medium",
+    "tags": ["matrix"]
+  },
+  {
+    "title": "Spiral Matrix",
+    "titleSlug": "spiral-matrix",
+    "difficulty": "Medium",
+    "tags": ["matrix"]
+  },  
+  {
+    "title": "Find Peak Element",
+    "titleSlug": "find-peak-element",
+    "difficulty": "Medium",
+    "tags": ["binary-search","array"]
+  },
+  {
+    "title": "N-Queens",
+    "titleSlug": "n-queens",
+    "difficulty": "Hard",
+    "tags": ["backtracking"]
+  }
+]
+  

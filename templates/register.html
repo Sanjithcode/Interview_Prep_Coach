@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - Interview Prep Coach</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --dark-bg-primary: #0d1117;
+      --dark-bg-secondary: #161b22;
+      --dark-bg-tertiary: #21262d;
+      --dark-border: #30363d;
+      --dark-text-primary: #f0f6fc;
+      --dark-text-secondary: #8b949e;
+      --dark-accent-blue: #58a6ff;
+      --dark-accent-green: #3fb950;
+      --dark-accent-yellow: #d29922;
+      --dark-accent-purple: #a5a5ff;
+      --dark-accent-red: #f85149;
+      --dark-card-hover: #262c36;
+    }
+
+    body {
+      background-color: var(--dark-bg-primary);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      color: var(--dark-text-primary);
+    }
+
+    /* Subtle animated background pattern like dashboard/login */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: radial-gradient(circle at 1px 1px, rgba(88,166,255,0.07) 1px, transparent 0);
+      background-size: 20px 20px;
+      pointer-events: none;
+      z-index: -1;
+      animation: moveBg 40s linear infinite;
+    }
+    @keyframes moveBg {
+      from { background-position: 0 0; }
+      to   { background-position: 100px 100px; }
+    }
+
+    .register-card {
+      background: var(--dark-bg-secondary);
+      border: 1.5px solid var(--dark-border);
+      box-shadow: 0 10px 32px rgba(0,0,0,0.6);
+      border-radius: 20px;
+      padding: 2.5rem 2rem 2rem 2rem;
+      width: 100%;
+      max-width: 440px;
+      animation: fadeInUp 0.95s cubic-bezier(.175,.885,.32,1.275) forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    .card-header {
+      background: linear-gradient(90deg, var(--dark-accent-green), var(--dark-accent-blue));
+      color: #fff;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      padding: 1.3rem .7rem .8rem .7rem;
+      border-radius: 12px 12px 0 0;
+      margin: -2.5rem -2rem 2.2rem -2rem;
+      box-shadow: 0 8px 16px rgba(63,185,80,.10);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      letter-spacing: 1px;
+    }
+    .card-header i {
+      font-size: 2.05rem;
+      margin-bottom: 4px;
+      color: var(--dark-accent-green);
+      filter: drop-shadow(0 2px 6px rgba(63,185,80,.13));
+    }
+
+    .form-floating input {
+      background: var(--dark-bg-tertiary);
+      color: var(--dark-text-primary);
+      border: 1px solid var(--dark-border);
+      border-radius: 10px;
+      font-size: 1.02rem;
+      transition: border-color 0.2s;
+    }
+    .form-floating input:focus {
+      border-color: var(--dark-accent-green);
+      background: var(--dark-bg-secondary);
+      color: #fff;
+      box-shadow: 0 0 15px rgba(63,185,80,0.09);
+    }
+
+    label {
+      color: var(--dark-text-secondary);
+      font-weight: 400;
+    }
+
+    .form-icon {
+      position: absolute;
+      right: 18px;
+      top: 17px;
+      color: var(--dark-accent-green);
+      opacity: 0.78;
+      font-size: 1.12rem;
+    }
+    .btn-success {
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--dark-accent-green), #38ae60 80%);
+      color: #fff !important;
+      font-weight: bold;
+      letter-spacing: 1px;
+      padding: 0.7rem 0;
+      font-size: 1.08rem;
+      box-shadow: 0 4px 20px rgba(63,185,80,0.10);
+      transition: 0.22s all;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-success:hover, .btn-success:focus {
+      background: linear-gradient(135deg, #38ae60, var(--dark-accent-green) 90%);
+      color: var(--dark-bg-primary)!important;
+      transform: translateY(-1px) scale(1.018);
+      box-shadow: 0 7px 30px rgba(63,185,80,0.18);
+    }
+
+    .login-text {
+      margin-top: 22px;
+      font-size: 0.97rem;
+      color: var(--dark-text-secondary);
+      text-align: center;
+    }
+    .login-text a {
+      color: var(--dark-accent-green);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.21s;
+    }
+    .login-text a:hover {
+      color: var(--dark-accent-blue);
+      text-decoration: underline;
+    }
+
+    .alert {
+      border-radius: 8px;
+      padding: 0.7em 1em;
+      font-weight: 500;
+      font-size: 1.06rem;
+    }
+    /* Responsive */
+    @media (max-width: 500px) {
+      .register-card { padding:1.1rem 0.5rem;}
+      .card-header {font-size: 1.35rem;}
+    }
+  </style>
+</head>
+<body>
+  <div class="register-card">
+    <div class="card-header">
+      <i class="fas fa-user-plus"></i>
+      Create Your Account
+    </div>
+    <div class="p-4 pt-2">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-warning text-center mb-4">
+          <i class="fas fa-exclamation-triangle me-2"></i>{{ messages[0] }}
+        </div>
+      {% endif %}
+      {% endwith %}
+
+      <form method="POST" action="/register" autocomplete="off">
+        <div class="form-floating mb-3 position-relative">
+          <input type="text" name="username" class="form-control" id="username" placeholder="Choose a username" required autofocus>
+          <label for="username">Username</label>
+          <i class="fas fa-user form-icon"></i>
+        </div>
+        <div class="form-floating mb-3 position-relative">
+          <input type="email" name="email" class="form-control" id="email" placeholder="Your email address" required>
+          <label for="email">Email</label>
+          <i class="fas fa-envelope form-icon"></i>
+        </div>
+        <div class="form-floating mb-3 position-relative">
+          <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+          <label for="password">Password</label>
+          <i class="fas fa-lock form-icon"></i>
+        </div>
+        <div class="form-floating mb-4 position-relative">
+          <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="Confirm Password" required>
+          <label for="confirm_password">Confirm Password</label>
+          <i class="fas fa-check-double form-icon"></i>
+        </div>
+        <button type="submit" class="btn btn-success w-100">
+          <i class="fas fa-user-plus me-2"></i>Register
+        </button>
+        <div class="login-text">
+          Already have an account? <a href="/login">Login here</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

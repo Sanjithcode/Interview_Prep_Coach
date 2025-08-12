@@ -1,0 +1,67 @@
+<!-- templates/aptitude.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aptitude Practice</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .topic-card {
+      transition: 0.3s;
+    }
+    .topic-card:hover {
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Interview Prep Coach</a>
+      <div class="d-flex">
+        <span class="navbar-text text-white me-3">
+          Welcome, {{ username }}!
+        </span>
+        <a class="btn btn-outline-light" href="/logout">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+  <h2 class="mb-0">Aptitude Practice Topics</h2>
+  <a class="btn btn-secondary" href="/dashboard">← Back to Dashboard</a>
+</div>
+    
+    <div class="row">
+      {% for topic in topics %}
+      <div class="col-md-6 mb-4">
+        <div class="card topic-card shadow-sm p-3">
+          <h5>
+  {{ topic }}
+  {% if progress_dict[topic] %}
+    <span class="badge bg-success float-end">{{ progress_dict[topic] }}%</span>
+  {% endif %}
+</h5>
+
+          <div class="dropdown mt-2">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              Choose
+            </button>
+            <ul class="dropdown-menu">
+<li><a class="dropdown-item" href="/solve/{{ topic|lower|replace(' ', '-') }}">Solve Questions</a></li>
+
+<li><a class="dropdown-item" href="/learn/{{ topic|lower|replace(' ', '-') }}">Learn Concepts</a></li>
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
